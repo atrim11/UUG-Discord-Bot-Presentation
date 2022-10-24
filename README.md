@@ -12,6 +12,7 @@
   2. Create New Web Service
   3. Create New project 
   4. Click the HTTP request or webhook  
-  5. Discord - Command - Ping ![Screen Shot 2022-10-24 at 6 43 48 PM](https://user-images.githubusercontent.com/97255681/197643752-1917340c-bf4b-4b33-9ae2-e02d5cb96117.png)
+  5. Discord - Command - Ping 
+![Screen Shot 2022-10-24 at 6 43 48 PM](https://user-images.githubusercontent.com/97255681/197643752-1917340c-bf4b-4b33-9ae2-e02d5cb96117.png)
 
   
