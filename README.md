@@ -23,3 +23,6 @@
   5. Input your bot token on the next screen and click the blue Finish button.
   6. Follow Discord's authentication instructions. You'll be asked to choose a server to add your bot to.
   
+## #4 Create Your Slash Command 
+  1. Now you need to set up the slash command https://autocode.com/tools/discord/command-builder/
+  2. Link your Discord bot account to the command builder. If you've previously linked one, you can click the green choose button, or link a new resource.
