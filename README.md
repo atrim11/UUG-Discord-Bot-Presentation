@@ -15,5 +15,11 @@
   5. Discord - Command - Ping 
 
 ![Screen Shot 2022-10-24 at 6 43 48 PM](https://user-images.githubusercontent.com/97255681/197643752-1917340c-bf4b-4b33-9ae2-e02d5cb96117.png)
-
+## #3 Link Discord To Autocode
+  1. Linked Resources in bottom left click link button
+  2. Choose Discord as the API Scource 
+  3. Get Client ID and Client Sectret From The developer Portal 
+  4. Copy the Redirect URL and paste it and add it on your Discord auth page as seen in the modal.
+  5. Input your bot token on the next screen and click the blue Finish button.
+  6. Follow Discord's authentication instructions. You'll be asked to choose a server to add your bot to.
   
