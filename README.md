@@ -27,7 +27,8 @@
   2. Choose Google Sheet as the API Scource 
   3. Create a new google sheet
   4. Name top two as "Question" and "Answer"
-  5. First we need to handle if the user types a command that doesnt work
+## #5 get the !ask command to work 
+  1. First we need to handle if the user types a command that doesnt work
   ```
   const lib = require("lib")({ token: process.env.STDLIB_SECRET_TOKEN });
 
@@ -47,7 +48,7 @@ if (!question) {
   return;
 }
   ```
- 6. Now we need to see if the question is in the google sheet and handle if it is not given
+ 2. Now we need to see if the question is in the google sheet and handle if it is not given
  ```
  let answer = await lib.googlesheets.query["@0.3.0"].select({
   range: `A:C`,
@@ -72,7 +73,7 @@ if (!answer.rows.length) {
   return;
 }
 ```
-7.Now print what is in the answer column for the question asked
+3.Now print what is in the answer column for the question asked
 ```
 await lib.discord.channels["@0.3.0"].messages.create({
       channel_id: `${context.params.event.channel_id}`,
