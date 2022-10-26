@@ -27,7 +27,7 @@
   2. Choose Google Sheet as the API Scource 
   3. Create a new google sheet
   4. Name top two as "Question" and "Answer"
-  5. add this block of code
+  5. First we need to handle if the user types a command that doesnt work
   ```
   const lib = require("lib")({ token: process.env.STDLIB_SECRET_TOKEN });
 
@@ -46,19 +46,45 @@ if (!question) {
   });
   return;
 }
-
-let frequencyQuery = await lib.googlesheets.query["@0.3.0"].distinct({
+  ```
+ 6. Now we need to see if the question is in the google sheet and handle if it is not given
+ ```
+ let answer = await lib.googlesheets.query["@0.3.0"].select({
   range: `A:C`,
-  bounds: `FIRST_EMPTY_ROW`,
+  bounds: "FIRST_EMPTY_ROW",
   where: [
     {
       Question__contains: question,
     },
   ],
-  field: `Frequency`,
+  limit: {
+    count: 0,
+    offset: 0,
+  },
 });
-  ```
-  
-## #5 Create Your Slash Command 
-  1. Now you need to set up the slash command https://autocode.com/tools/discord/command-builder/
-  2. Link your Discord bot account to the command builder. If you've previously linked one, you can click the green choose button, or link a new resource.
+if (!answer.rows.length) {
+  await lib.discord.channels["@0.3.0"].messages.create({
+    channel_id: `${context.params.event.channel_id}`,
+    content: [
+      `I couldn't find any answers matching the query **${question}**.`,
+    ].join("\n"),
+  });
+  return;
+}
+```
+7.Now print what is in the answer column for the question asked
+```
+await lib.discord.channels["@0.3.0"].messages.create({
+      channel_id: `${context.params.event.channel_id}`,
+      content: "",
+      embed: {
+        color: 0x00aa00,
+        fields: [
+          {
+            name: answer.rows[i].fields.Question,
+            value: answer.rows[i].fields.Answer,
+          },
+        ],
+      },
+    });
+```
