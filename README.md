@@ -82,8 +82,8 @@ await lib.discord.channels["@0.3.0"].messages.create({
         color: 0x00aa00,
         fields: [
           {
-            name: answer.rows[i].fields.Question,
-            value: answer.rows[i].fields.Answer,
+            name: answer.rows[0].fields.Question,
+            value: answer.rows[0].fields.Answer,
           },
         ],
       },
